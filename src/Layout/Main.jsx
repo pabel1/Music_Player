@@ -1,6 +1,7 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
 
+import MusicPlayer from "../Components/MusicPlayer";
 import Topbar from "../Components/Navbar/Topbar";
 import Searchbar from "../Components/Search/Searchbar";
 const Main = () => {
@@ -22,7 +23,7 @@ const Main = () => {
 
       {/* {activeSong?.title && ( */}
       <div className="absolute h-32 bottom-0 left-0 right-0 flex animate-slideup bg-gradient-to-br from-white/10 to-[#2a2a80] backdrop-blur-lg rounded-t-xl z-10">
-        {/* <MusicPlayer /> */}
+        <MusicPlayer />
       </div>
       {/* )} */}
     </section>
