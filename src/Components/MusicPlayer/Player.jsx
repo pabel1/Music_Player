@@ -31,7 +31,10 @@ const Player = ({
 
   return (
     <audio
-      src={activeSong?.hub?.actions[1]?.uri}
+      src={
+        activeSong?.hub?.actions[1]?.uri ||
+        "https://res.cloudinary.com/dlobu2gpz/video/upload/v1703532676/gadget_shop/music_file/utzllrrcdy40eavw4qom.webm"
+      }
       ref={ref}
       loop={repeat}
       onEnded={onEnded}
