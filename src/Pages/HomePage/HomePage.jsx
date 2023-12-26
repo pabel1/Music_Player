@@ -1,12 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import { useSelector } from "react-redux";
+import { MusicCardSkeleton } from "../../Components/LoadingSkeleton/MusicCardSkeleton";
 import SongCard from "../../Components/SongCard";
 import { useGetAllMusicQuery } from "../../feature/music/musicApiSlice";
-
 const HomePage = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  const [data, setData] = useState();
-
+  console.log(isPlaying);
   const {
     data: musicData,
     isLoading,
@@ -15,12 +14,11 @@ const HomePage = () => {
   } = useGetAllMusicQuery({}) || {};
   let content = null;
   if (!isLoading && isSuccess && !isError) {
-    console.log(musicData);
+    const { data } = musicData || {};
     content = (
       <>
-        {Array(8)
-          .fill()
-          .map((song, i) => (
+        {data &&
+          data.map((song, i) => (
             <SongCard
               key={i}
               song={song}
@@ -32,6 +30,15 @@ const HomePage = () => {
           ))}
       </>
     );
+  }
+  if (isLoading && !isSuccess) {
+    content = Array(8)
+      .fill()
+      .map((_, i) => (
+        <>
+          <MusicCardSkeleton key={i} />
+        </>
+      ));
   }
   return (
     <div className=" container text-center mt-8 grid grid-cols-5 items-center justify-center gap-3 overflow-auto">
