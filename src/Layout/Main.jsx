@@ -15,7 +15,7 @@ const Main = () => {
           <Searchbar />
         </div>
 
-        <div className="px-6 h-[calc(100vh-72px)] overflow-y-scroll hide-scrollbar flex xl:flex-row flex-col-reverse">
+        <div className="px-6 h-[calc(100vh-72px)]   flex xl:flex-row flex-col-reverse">
           <Outlet />
         </div>
       </div>

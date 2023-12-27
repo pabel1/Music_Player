@@ -17,6 +17,7 @@ export const musicApiSlice = apiSlice.injectEndpoints({
           genre,
         } = data;
 
+        console.log(searchTerm);
         const queryParams = new URLSearchParams();
 
         if (sortOrder) {
@@ -64,10 +65,9 @@ export const musicApiSlice = apiSlice.injectEndpoints({
     singleMusic: builder.query({
       query: (data) => {
         const { id } = data;
-        console.log(id);
 
         return {
-          url: `/music/get-all/${id}`,
+          url: `/music/single-music/${id}`,
           method: "GET",
           headers: {
             "Content-Type": "application/json;charset=UTF-8",
