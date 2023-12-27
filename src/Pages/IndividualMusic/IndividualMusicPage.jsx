@@ -6,7 +6,6 @@ import { useSingleMusicQuery } from "../../feature/music/musicApiSlice";
 
 const IndividualMusicPage = () => {
   const { id } = useParams();
-  console.log(id);
   const {
     data: music,
     isLoading,

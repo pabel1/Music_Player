@@ -7,8 +7,7 @@ import { useGetAllMusicQuery } from "../../feature/music/musicApiSlice";
 const HomePage = () => {
   const { activeSong, isPlaying } = useSelector((state) => state.player);
   const { searchTerm } = useSelector((state) => state.search);
-  console.log(searchTerm);
-  console.log(isPlaying);
+
   const {
     data: musicData,
     isLoading,

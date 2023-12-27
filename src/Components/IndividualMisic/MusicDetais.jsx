@@ -4,17 +4,14 @@ import { playPause, setActiveSong } from "../../feature/player/playerSlice";
 import PlayPause from "../PlayPause";
 
 const MusicDetais = ({ data }) => {
-  console.log(data);
   const dispatch = useDispatch();
   const { activeSong, isPlaying } = useSelector((state) => state.player);
-  // const [isPlaying, setIsPlaying] = useState();
+
   const handlePauseClick = () => {
     dispatch(playPause(false));
-    // setIsPlaying(false);
   };
 
   const handlePlayClick = () => {
-    // setIsPlaying(true);
     dispatch(setActiveSong({ song: data, data: [data], i: 0 }));
     dispatch(playPause(true));
   };
