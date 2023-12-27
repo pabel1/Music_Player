@@ -15,21 +15,27 @@ const IndividualMusicPage = () => {
   } = useSingleMusicQuery({ id }) || {};
 
   let imageViewContent = null;
+  let detailContent = null;
   if (!isLoading && isSuccess && !isError) {
     const { data } = music || {};
+
     imageViewContent = (
       <>
         {" "}
         <ImageView data={data} />
       </>
     );
+    detailContent = (
+      <>
+        {" "}
+        <MusicDetais data={data} />
+      </>
+    );
   }
   return (
-    <div className=" container mt-10 grid  grid-cols-3">
+    <div className=" container mt-10 grid  grid-cols-3 gap-10">
       <div>{imageViewContent}</div>
-      <div className=" col-span-2">
-        <MusicDetais />
-      </div>
+      <div className=" col-span-2">{detailContent}</div>
     </div>
   );
 };

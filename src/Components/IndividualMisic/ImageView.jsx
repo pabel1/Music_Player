@@ -3,7 +3,11 @@ import React from "react";
 const ImageView = ({ data }) => {
   return (
     <div>
-      <img src={data?.coverImg?.secure_url} alt="cover-image" />
+      <img
+        className=" rounded-lg"
+        src={data?.coverImg?.secure_url}
+        alt="cover-image"
+      />
     </div>
   );
 };
